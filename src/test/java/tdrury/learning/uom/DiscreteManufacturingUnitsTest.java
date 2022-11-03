@@ -18,17 +18,20 @@ class DiscreteManufacturingUnitsTest {
     DiscreteManufacturingSystemService dmss = new DiscreteManufacturingSystemService();
 
     @Test
-    void test1() {
+    void load_givenCustomUOM_thenUOMsLoaded() {
         SystemOfUnits systemOfUnits = dmss.getSystemOfUnits();
         Set<? extends Unit<?>> sou = systemOfUnits.getUnits();
         for (Unit u : sou) {
             log.info("sou={}", u);
         }
-        assertThat(sou, contains(DiscreteManufacturingUnits.PIECE));
+        assertThat(sou, contains(
+            DiscreteManufacturingUnits.PIECE
+            ,DiscreteManufacturingUnits.EACH
+        ));
     }
 
     @Test
-    void pieces() {
+    void pieces_givenCustomUOMProvider_thenCustomUOMAvailable() {
         // given
         Quantity<?> quantity = SimpleQuantityFormat.getInstance().parse("10 PCS");
         // then

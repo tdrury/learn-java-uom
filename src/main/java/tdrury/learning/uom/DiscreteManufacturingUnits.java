@@ -1,5 +1,6 @@
 package tdrury.learning.uom;
 
+import tdrury.learning.uom.quantity.Each;
 import tdrury.learning.uom.quantity.Piece;
 import tech.units.indriya.AbstractUnit;
 import tech.units.indriya.unit.BaseUnit;
@@ -23,6 +24,7 @@ public class DiscreteManufacturingUnits extends Units {
 
 
     public static final Unit<AmountOfSubstance> PIECE = addUnit(new BaseUnit<>("PCS", "Pieces", UnitDimension.AMOUNT_OF_SUBSTANCE), Piece.class);
+    public static final Unit<AmountOfSubstance> EACH = addUnit(new BaseUnit<>("EA", "Each", UnitDimension.AMOUNT_OF_SUBSTANCE), Each.class);
 
 
     private static <U extends AbstractUnit<?>> U addUnit(U unit, Class<? extends Quantity<?>> type) {
